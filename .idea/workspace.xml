@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb7f0d5-f2d7-47ca-b6eb-0a48669b9f05" name="Default" comment="inital committ">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/Fire Aura.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Conductor.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Game$STATE.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Game.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Handler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/KeyInput.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Lane.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Note.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/NoteObject.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Tap$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Tap.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Window.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Fire Aura.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RhythmDash.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/FireAuraNotes.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FireAuraNotes.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Conductor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Game.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Handler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/KeyInput.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Lane.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Note.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/NoteObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Tap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Window.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/main/Conductor.java" afterPath="$PROJECT_DIR$/src/com/game/main/Conductor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,8 +29,8 @@
       <file leaf-file-name="Conductor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/game/main/Conductor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -509,8 +481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/game/main/Conductor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="408">
+          <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
