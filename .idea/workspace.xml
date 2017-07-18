@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bb7f0d5-f2d7-47ca-b6eb-0a48669b9f05" name="Default" comment="inital committ">
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Tap.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/KeyInput.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Tap$1.class" />
@@ -31,6 +32,9 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RhythmDash/com/game/main/Tap.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/game/main/Note.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/game/main/Conductor.java" afterPath="$PROJECT_DIR$/src/com/game/main/Conductor.java" />
+>>>>>>> login
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,8 +61,13 @@
       <file leaf-file-name="Conductor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/game/main/Conductor.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="221">
               <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+=======
+            <state relative-caret-position="408">
+              <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+>>>>>>> login
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1500393867741" expanded="true" signature="2375:3908" ph="{...}" />
@@ -512,6 +521,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="42" column="4" lean-forward="false" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+<<<<<<< HEAD
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1500393867741" expanded="true" signature="2375:3908" ph="{...}" />
@@ -600,6 +610,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+=======
+>>>>>>> login
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1500393867741" expanded="true" signature="2375:3908" ph="{...}" />
