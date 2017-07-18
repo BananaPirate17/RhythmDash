@@ -10,10 +10,11 @@ import java.io.*;
  * Created by tluo on 7/10/2017.
  */
 public class Conductor {
-    public double bpm;
-    public double crotchet;
-    public double offset;
+    private double bpm;
+    private double crotchet;
+    private double offset;
     public static double songPosition;
+    public static double songDuration;
     private String soundFile;
     private MediaPlayer mediaPlayer;
     public int[] lane;
@@ -32,15 +33,16 @@ public class Conductor {
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.setStartTime(Duration.millis(0));
         this.mediaPlayer = mediaPlayer;
+        songDuration = this.mediaPlayer.getTotalDuration().toSeconds();
 
 
         lastReset = System.currentTimeMillis();
         mediaPlayer.play();
 
     }
- // test
+    // test
     //test
-    
+
     public void tick() {
         if (System.currentTimeMillis() - lastReset > 500) {
             KeyInput.spaceResult = "";
@@ -50,6 +52,7 @@ public class Conductor {
             KeyInput.jResult = "";
             lastReset = System.currentTimeMillis();
         }
+        songDuration = this.mediaPlayer.getCycleDuration().toSeconds();
 
         songPosition = this.mediaPlayer.getCurrentTime().toSeconds();
 
@@ -79,7 +82,6 @@ public class Conductor {
             }
         }
     }
-
 
 
     public void getNotes() { //STILL NEED TO FIX THIS...
@@ -112,8 +114,7 @@ public class Conductor {
             e.printStackTrace();
         }
         try {
-            for (int i = 0; i < lines; i++)
-            {
+            for (int i = 0; i < lines; i++) {
                 line = reader.readLine();
                 if (!line.equals("-")) {
                     String[] splitStr = line.split("\\s+");
@@ -134,7 +135,10 @@ public class Conductor {
             System.out.println(lane[i] + " " + time[i]);
         }*/
 
+    }
 
+    public double getSongDuration() {
+        return songDuration;
     }
 
 

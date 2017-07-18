@@ -1,5 +1,6 @@
 package com.game.main;
 
+import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -68,6 +69,7 @@ public class KeyInput extends KeyAdapter {
                 System.out.println("4: " + Conductor.songPosition);
             }
         }
+        else if (key == KeyEvent.VK_ESCAPE) System.exit(1);
     }
 
     public void keyReleased(KeyEvent e) {

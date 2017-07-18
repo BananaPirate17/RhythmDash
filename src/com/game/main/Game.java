@@ -19,6 +19,7 @@ public class Game extends Canvas implements Runnable {
 
     private Handler handler;
     private Conductor conductor;
+    private HUD hud;
 
     public enum STATE {
         MENU,
@@ -34,6 +35,8 @@ public class Game extends Canvas implements Runnable {
         conductor = new Conductor(handler);
 
         new Window(WIDTH, HEIGHT, "Rhythm Dash", this);
+
+        hud = new HUD();
 
         start();
     }
@@ -87,6 +90,7 @@ public class Game extends Canvas implements Runnable {
     private void tick() {
         handler.tick();
         conductor.tick();
+        hud.tick();
 
     }
 
@@ -128,6 +132,8 @@ public class Game extends Canvas implements Runnable {
         g.drawString("FPS: " + FPS, 700, 400);
 
         handler.render(g);
+
+        hud.render(g);
 
         g.dispose();
         bs.show();
