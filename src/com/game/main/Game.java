@@ -8,9 +8,10 @@ import java.awt.image.BufferStrategy;
 /**
  * Created by tluo on 7/7/2017.
  */
+
 public class Game extends Canvas implements Runnable {
 
-    final JFXPanel fxPanel = new JFXPanel(); // needed to initialize javafx
+    final JFXPanel fxPanel = new JFXPanel(); // needed to initialize javafx, don't delete
 
     private int FPS; //displayed FPS
     public static final int WIDTH = 800, HEIGHT = WIDTH / 4 * 3;
