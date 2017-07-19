@@ -4,15 +4,11 @@ import java.awt.*;
 
 public class HUD {
 
-    public static double duration;
-    public static double time;
-    private Conductor conductor;
+    private static double duration;
+    private static double time;
 
-    public void HUD() {
-        duration = Conductor.songDuration;
-    }
 
-   void tick() {
+   public void tick() {
        time = Conductor.songPosition;
        duration = Conductor.songDuration;
 

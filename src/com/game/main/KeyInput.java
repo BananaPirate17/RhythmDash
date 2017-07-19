@@ -120,19 +120,19 @@ public class KeyInput extends KeyAdapter {
     private void display(Result result, int key) {
         switch (key) {
             case KeyEvent.VK_SPACE:
-                spaceResult = result.toString();
+                spaceResult = result.toString().toLowerCase();
                 break;
             case KeyEvent.VK_F:
-                fResult = result.toString();
+                fResult = result.toString().toLowerCase();
                 break;
             case KeyEvent.VK_G:
-                gResult = result.toString();
+                gResult = result.toString().toLowerCase();
                 break;
             case KeyEvent.VK_H:
-                hResult = result.toString();
+                hResult = result.toString().toLowerCase();
                 break;
             case KeyEvent.VK_J:
-                jResult = result.toString();
+                jResult = result.toString().toLowerCase();
                 break;
         }
     }

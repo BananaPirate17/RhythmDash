@@ -40,8 +40,6 @@ public class Conductor {
         mediaPlayer.play();
 
     }
-    // test
-    //test
 
     public void tick() {
         if (System.currentTimeMillis() - lastReset > 500) {
@@ -131,9 +129,6 @@ public class Conductor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*for (int i = 0; i < lines; i++) {
-            System.out.println(lane[i] + " " + time[i]);
-        }*/
 
     }
 

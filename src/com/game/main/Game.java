@@ -110,18 +110,20 @@ public class Game extends Canvas implements Runnable {
         g.fillRect(0, 0, WIDTH, HEIGHT);
         g.setColor(Color.DARK_GRAY);
 
-        g.drawLine(0, 500, 800, 500); // lines
+        g.drawLine(0, 500, 800, 500);// lines
+        g.drawLine(0, 520, 800, 520);
+
         g.drawLine(200, 0, 200, 600);
         g.drawLine(300, 0, 300, 600);
         g.drawLine(400, 0, 400, 600);
         g.drawLine(500, 0, 500, 600);
         g.drawLine(600, 0, 600, 600);
 
-        g.drawString("'space'", 135, 520); // keys
-        g.drawString("'F'", 245, 520);
-        g.drawString("'G'", 345, 520);
-        g.drawString("'H'", 445, 520);
-        g.drawString("'J'", 545, 520);
+        g.drawString("'SPACE'", 135, 515); // keys
+        g.drawString("'F'", 245, 515);
+        g.drawString("'G'", 345, 515);
+        g.drawString("'H'", 445, 515);
+        g.drawString("'J'", 545, 515);
 
         g.setColor(Color.white);
         Font bigWhite = new Font("SansSerif", Font.BOLD, 18);
@@ -132,12 +134,15 @@ public class Game extends Canvas implements Runnable {
         g.drawString(KeyInput.gResult, 325, 550);
         g.drawString(KeyInput.hResult, 425, 550);
         g.drawString(KeyInput.jResult, 525, 550);
-        g.drawString("FPS: " + FPS, 700, 400);
-        g.drawString("Score: " + keys.getScore(), 660, 200);
-        g.drawString("Combo: x" + KeyInput.combo, 660, 250);
+        g.drawString("FPS: " + FPS, 660, 495);
+        g.drawString("Score: " + keys.getScore(), 660, 35);
+        g.drawString("Combo: x" + KeyInput.combo, 660, 60);
+
+        g.setColor(Color.red);
+        g.drawString("Fire Aura", 650, 250);
+        g.drawString("Kid2Will", 675, 275);
 
         handler.render(g);
-
         hud.render(g);
 
         g.dispose();
