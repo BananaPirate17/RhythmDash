@@ -1,6 +1,5 @@
 package com.game.main;
 
-import javax.xml.crypto.dsig.keyinfo.KeyValue;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -16,9 +15,24 @@ public class KeyInput extends KeyAdapter {
     public static String hResult = "";
     public static String jResult = "";
 
+    private static int score = 0;
+    public static int combo = 0;
+
     private Handler handler;
     public static ArrayList hitLanes = new ArrayList(10);
     public static ArrayList hitSetTimes = new ArrayList(10);
+
+
+    public enum Result {
+        MISS(0, 0), BAD(2, 0), GOOD(5, 1), PERFECT(10, 1);
+        private int value;
+        private int comboAdd;
+
+        Result(int value, int comboAdd) {
+            this.value = value;
+            this.comboAdd = comboAdd;
+        }
+    }
 
 
     public KeyInput(Handler handler) {
@@ -26,85 +40,106 @@ public class KeyInput extends KeyAdapter {
     }
 
     public void keyPressed(KeyEvent e) {
-        String result;
         int key = e.getKeyCode();
-        if (key == KeyEvent.VK_SPACE) {
-            Double nextNoteTime = (Double) Tap.spaceNotes.get(0);
-            if (hit(nextNoteTime, key) != "miss") {
-                hitSetTimes.add(Tap.spaceNotes.get(0));
-                Tap.spaceNotes.remove(0);
-                hitLanes.add(Lane.LEFTLEFT);
-            }
-        } else if (key == KeyEvent.VK_F) {
-            Double nextNoteTime = (Double) Tap.fNotes.get(0);
-            if (hit(nextNoteTime, key) != "miss") {
-                hitSetTimes.add(Tap.fNotes.get(0));
-                Tap.fNotes.remove(0);
-                hitLanes.add(Lane.LEFT);
-                System.out.println("1: " + Conductor.songPosition);
-            }
-        } else if (key == KeyEvent.VK_G) {
-            Double nextNoteTime = (Double) Tap.gNotes.get(0);
-            if (hit(nextNoteTime, key) != "miss") {
-                hitSetTimes.add(Tap.gNotes.get(0));
-                Tap.gNotes.remove(0);
-                hitLanes.add(Lane.LEFTCENTER);
-                System.out.println("2: " + Conductor.songPosition);
-            }
-        } else if (key == KeyEvent.VK_H) {
-            Double nextNoteTime = (Double) Tap.hNotes.get(0);
-            if (hit(nextNoteTime, key) != "miss") {
-                hitSetTimes.add(Tap.hNotes.get(0));
-                Tap.hNotes.remove(0);
-                hitLanes.add(Lane.RIGHTCENTER);
-                System.out.println("3: " + Conductor.songPosition);
-            }
-        } else if (key == KeyEvent.VK_J) {
-            Double nextNoteTime = (Double) Tap.jNotes.get(0);
-            if (hit(nextNoteTime, key) != "miss") {
-
-                hitSetTimes.add(Tap.jNotes.get(0));
-                Tap.jNotes.remove(0);
-                hitLanes.add(Lane.RIGHT);
-                System.out.println("4: " + Conductor.songPosition);
-            }
+        Result result;
+        Double nextNoteTime;
+        switch (key) {
+            case KeyEvent.VK_SPACE:
+                nextNoteTime = (Double) Tap.spaceNotes.get(0);
+                result = hit(nextNoteTime, key);
+                if (!result.equals(Result.MISS)) {
+                    hitSetTimes.add(Tap.spaceNotes.get(0));
+                    Tap.spaceNotes.remove(0);
+                    hitLanes.add(Lane.LEFTLEFT);
+                }
+                break;
+            case KeyEvent.VK_F:
+                nextNoteTime = (Double) Tap.fNotes.get(0);
+                result = hit(nextNoteTime, key);
+                if (!result.equals(Result.MISS)) {
+                    hitSetTimes.add(Tap.fNotes.get(0));
+                    Tap.fNotes.remove(0);
+                    hitLanes.add(Lane.LEFT);
+                }
+                break;
+            case KeyEvent.VK_G:
+                nextNoteTime = (Double) Tap.gNotes.get(0);
+                result = hit(nextNoteTime, key);
+                if (!result.equals(Result.MISS)) {
+                    hitSetTimes.add(Tap.gNotes.get(0));
+                    Tap.gNotes.remove(0);
+                    hitLanes.add(Lane.LEFTCENTER);
+                }
+                break;
+            case KeyEvent.VK_H:
+                nextNoteTime = (Double) Tap.hNotes.get(0);
+                result = hit(nextNoteTime, key);
+                if (!result.equals(Result.MISS)) {
+                    hitSetTimes.add(Tap.hNotes.get(0));
+                    Tap.hNotes.remove(0);
+                    hitLanes.add(Lane.RIGHTCENTER);
+                }
+                break;
+            case KeyEvent.VK_J:
+                nextNoteTime = (Double) Tap.jNotes.get(0);
+                result = hit(nextNoteTime, key);
+                if (!result.equals(Result.MISS)) {
+                    hitSetTimes.add(Tap.jNotes.get(0));
+                    Tap.jNotes.remove(0);
+                    hitLanes.add(Lane.RIGHT);
+                }
+                break;
+            case KeyEvent.VK_ESCAPE:
+                System.exit(1);
         }
-        else if (key == KeyEvent.VK_ESCAPE) System.exit(1);
     }
 
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
-
     }
 
-    public String hit(double nextNoteTime, int key) {
+    private Result hit(double nextNoteTime, int key) {
         double distance = Math.abs(nextNoteTime - Conductor.songPosition);
-        String tempResult;
+        Result tempResult;
         if (distance < 0.175) {
-            tempResult = "bad";
+            tempResult = Result.BAD;
             if (distance < 0.0825) {
-                tempResult = "good";
+                tempResult = Result.GOOD;
                 if (distance < 0.05)
-                    tempResult = "perfect!";
+                    tempResult = Result.PERFECT;
             }
             display(tempResult, key);
-        } else
-            tempResult = "miss";
+        } else {
+            tempResult = Result.MISS;
+        }
+        combo += tempResult.comboAdd;
+        score = score + (int) (tempResult.value * 10 * ((double) (100 + combo)) / 100);
         return tempResult;
     }
 
-    public void display(String result, int key) {
-        if (key == KeyEvent.VK_SPACE) {
-            spaceResult = result;
-        } else if (key == KeyEvent.VK_F) {
-            fResult = result;
-        } else if (key == KeyEvent.VK_G) {
-            gResult = result;
-        } else if (key == KeyEvent.VK_H) {
-            hResult = result;
-        } else if (key == KeyEvent.VK_J) {
-            jResult = result;
+    private void display(Result result, int key) {
+        switch (key) {
+            case KeyEvent.VK_SPACE:
+                spaceResult = result.toString();
+                break;
+            case KeyEvent.VK_F:
+                fResult = result.toString();
+                break;
+            case KeyEvent.VK_G:
+                gResult = result.toString();
+                break;
+            case KeyEvent.VK_H:
+                hResult = result.toString();
+                break;
+            case KeyEvent.VK_J:
+                jResult = result.toString();
+                break;
         }
-
     }
+
+    public int getScore() {
+        return score;
+    }
+
+
 }

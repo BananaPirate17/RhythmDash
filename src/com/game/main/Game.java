@@ -12,7 +12,7 @@ public class Game extends Canvas implements Runnable {
 
     final JFXPanel fxPanel = new JFXPanel(); // needed to initialize javafx
 
-    private int FPS;
+    private int FPS; //displayed FPS
     public static final int WIDTH = 800, HEIGHT = WIDTH / 4 * 3;
     private Thread thread;
     private boolean running = false;
@@ -21,7 +21,7 @@ public class Game extends Canvas implements Runnable {
     private Conductor conductor;
     private HUD hud;
 
-    public enum STATE {
+    public enum STATE { //for the menu and selection screen. First priority after first song finished
         MENU,
         GAME
     }
@@ -45,6 +45,8 @@ public class Game extends Canvas implements Runnable {
         thread = new Thread(this);
         thread.start();
         running = true;
+
+
 
     }
 
@@ -100,6 +102,7 @@ public class Game extends Canvas implements Runnable {
             this.createBufferStrategy(3);
             return;
         }
+        KeyInput keys = new KeyInput(handler);
 
         Graphics g = bs.getDrawGraphics();
 
@@ -124,12 +127,14 @@ public class Game extends Canvas implements Runnable {
         Font bigWhite = new Font("SansSerif", Font.BOLD, 18);
         g.setFont(bigWhite);
 
-        g.drawString(KeyInput.spaceResult, 135, 540); // results
+        g.drawString(KeyInput.spaceResult, 135, 550); // results
         g.drawString(KeyInput.fResult, 225, 550);
         g.drawString(KeyInput.gResult, 325, 550);
         g.drawString(KeyInput.hResult, 425, 550);
         g.drawString(KeyInput.jResult, 525, 550);
         g.drawString("FPS: " + FPS, 700, 400);
+        g.drawString("Score: " + keys.getScore(), 660, 200);
+        g.drawString("Combo: x" + KeyInput.combo, 660, 250);
 
         handler.render(g);
 

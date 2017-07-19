@@ -60,6 +60,7 @@ public class Tap extends NoteObject {
                     KeyInput.jResult = "miss";
                     break;
             }
+            KeyInput.combo = 0;
             handler.removeNote(this);
         }
         if (!KeyInput.hitLanes.isEmpty()) //removing notes after hit
