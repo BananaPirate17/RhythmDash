@@ -14,7 +14,7 @@ public class Game extends Canvas implements Runnable {
     final JFXPanel fxPanel = new JFXPanel(); // needed to initialize javafx, don't delete
 
     private int FPS; //displayed FPS
-    public static final int WIDTH = 800, HEIGHT = WIDTH / 4 * 3;
+    private static final int WIDTH = 800, HEIGHT = WIDTH / 4 * 3;
     private Thread thread;
     private boolean running = false;
 
@@ -30,7 +30,7 @@ public class Game extends Canvas implements Runnable {
     public static STATE gameState = STATE.GAME;
 
 
-    public Game() {
+    private Game() {
         handler = new Handler();
         this.addKeyListener(new KeyInput(handler));
         conductor = new Conductor(handler);
@@ -42,16 +42,14 @@ public class Game extends Canvas implements Runnable {
         start();
     }
 
-    public synchronized void start() {
+    private synchronized void start() {
         thread = new Thread(this);
         thread.start();
         running = true;
 
-
-
     }
 
-    public synchronized void stop() {
+    private synchronized void stop() {
         try {
             thread.join();
             running = false;

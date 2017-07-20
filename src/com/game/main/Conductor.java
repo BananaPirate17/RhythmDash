@@ -17,9 +17,9 @@ public class Conductor {
     public static double songDuration;
     private String soundFile;
     private MediaPlayer mediaPlayer;
-    public int[] lane;
-    public double[] time;
-    public boolean[] made;
+   private int[] lane; //lanes of all notes
+    private double[] time; //times of all notes
+    private boolean[] made; //whether a note has already been created or not
     private Handler handler;
     private Lane noteLane;
     private double lastReset;
@@ -55,7 +55,7 @@ public class Conductor {
         songPosition = this.mediaPlayer.getCurrentTime().toSeconds();
 
         for (int i = 0; i < lane.length; i++) {
-            if (songPosition + 1.0 > time[i] && made[i] == false) {
+            if (songPosition + 1.0 > time[i] && !made[i]) {
                 switch (lane[i]) {
                     case 0:
                         noteLane = Lane.LEFTLEFT;
@@ -82,7 +82,7 @@ public class Conductor {
     }
 
 
-    public void getNotes() { //STILL NEED TO FIX THIS...
+    private void getNotes() { //STILL NEED TO FIX THIS...
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader("src/FireAuraNotes.txt"));

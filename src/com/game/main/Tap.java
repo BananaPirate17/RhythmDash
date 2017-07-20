@@ -18,7 +18,7 @@ public class Tap extends NoteObject {
     public Tap(Lane lane, int y, Note note, double hitTime, Handler handler) {
         super(lane, y, note);
         this.handler = handler;
-        this.hitTime = hitTime;
+        this.setHitTime(hitTime);
         switch (lane) {
             case LEFTLEFT: spaceNotes.add(this.getHitTime());
                 break;
@@ -36,7 +36,7 @@ public class Tap extends NoteObject {
 
     public void tick() {
 
-        this.y = (int) Math.round((Conductor.songPosition + 1.0 - hitTime) / 1 * 500);
+        this.setY((int) Math.round((Conductor.songPosition + 1.0 - hitTime) / 1 * 500));
         if (this.y > 543.75) {
             switch (lane) {
                 case LEFTLEFT:
